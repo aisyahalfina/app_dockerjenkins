@@ -21,14 +21,13 @@ pipeline {
             bat 'docker login -u %USER% -p %PASS%'
             bat "docker push %IMAGE_NAME%:%BUILD_NUMBER%"
             bat "docker tag %IMAGE_NAME%:%BUILD_NUMBER% %IMAGE_NAME%:latest"
-            bat "docker push %IMAGE_NAME%:latest"
-            }
+            bat "docker push %IMAGE_NAME%:latest"}
         }
         }
     }
     post {
         success {
-                echo '✅ Build and deployment successful!'
+                echo '✅ Build and deployment successful! Good Job'
             }
             failure {
                 echo '❌ Build failed. Check logs.'
